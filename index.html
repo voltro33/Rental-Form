@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My Car Rental Company</title>
+    <link rel="stylesheet" type="text/css" href="../css/mySite.css">
+
+	 <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: darkgray;
+        }
+
+        h2 {
+         text-align: center;
+        }
+
+        form{
+            max-width: 750px;
+            margin: 0 auto;
+        padding: 20px;
+        background-color: floralwhite;
+        }
+
+        form p{
+        display: block;
+            margin-bottom: 20px;
+        }
+
+        label {
+        display: block;
+         margin: 5px;
+        font-weight: bold; 
+
+
+        }
+
+        select,input{
+            width: 95%;
+        padding: 10px;
+        border-radius: 5px;
+        }
+
+
+        input[type="radio"]{
+            width: 5%;
+                font-weight: normal;
+
+        }
+
+    input[type="submit"],input[type="reset"] {
+         width: 30%;
+    cursor: pointer; 
+        }
+
+        .error-message {
+    font-style: italic;
+     color: red;
+   padding: 5px;
+        margin-top: 5px;
+    }
+
+
+    </style>
+	<script src="script.js"></script>
+</head>
+<body>
+
+<h2>Car Rental Form</h2>
+
+
+<!---
+
+There's a cancel button. When I click it, it resets the colors back to its original form but somehow it won't reset the values.
+I could easily add a function inside the cancel button function that will refresh the page after clicking the button and reset all the fields but I didn't want to do that since I spent so much time trying to get it working my way. 
+-->
+
+
+<form onSubmit="return validateForm();">
+
+	<p class="error-message" style="font-weight: bold;" id="formError"></p>
+
+
+<!-- __________________________________________________________________________________-->
+
+<p class="error-message" font-weight="bold" id="stateSelectPickupError"></p> 
+
+	<p>
+   <label for="stateSelectPickup">Pickup Location:</label>
+   <select id="stateSelectPickup" required>
+      <option value="" disabled selected>Select a state</option>
+
+      <option value="Alabama">Alabama</option>
+    <option value="Alaska">Alaska</option>
+     <option value="Arizona">Arizona</option>
+      <option value="Arkansas">Arkansas</option>
+      <option value="California">California</option>
+      <option value="Colorado">Colorado</option>
+      <option value="Connecticut">Connecticut</option>
+      <option value="Delaware">Delaware</option>
+      <option value="Florida">Florida</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Hawaii">Hawaii</option>
+      <option value="Idaho">Idaho</option>
+      <option value="Illinois">Illinois</option>
+      <option value="Indiana">Indiana</option>
+      <option value="Iowa">Iowa</option>
+      <option value="Kansas">Kansas</option>
+      <option value="Kentucky">Kentucky</option>
+      <option value="Louisiana">Louisiana</option>
+      <option value="Maine">Maine</option>
+      <option value="Maryland">Maryland</option>
+      <option value="Massachusetts">Massachusetts</option>
+      <option value="Michigan">Michigan</option>
+      <option value="Minnesota">Minnesota</option>
+      <option value="Mississippi">Mississippi</option>
+      <option value="Missouri">Missouri</option>
+      <option value="Montana">Montana</option>
+      <option value="Nebraska">Nebraska</option>
+      <option value="Nevada">Nevada</option>
+      <option value="New Hampshire">New Hampshire</option>
+      <option value="New Jersey">New Jersey</option>
+      <option value="New Mexico">New Mexico</option>
+      <option value="New York">New York</option>
+      <option value="North Carolina">North Carolina</option>
+      <option value="North Dakota">North Dakota</option>
+      <option value="Ohio">Ohio</option>
+      <option value="Oklahoma">Oklahoma</option>
+      <option value="Oregon">Oregon</option>
+      <option value="Pennsylvania">Pennsylvania</option>
+      <option value="Rhode Island">Rhode Island</option>
+      <option value="South Carolina">South Carolina</option>
+      <option value="South Dakota">South Dakota</option>
+      <option value="Tennessee">Tennessee</option>
+      <option value="Texas">Texas</option>
+      <option value="Utah">Utah</option>
+      <option value="Vermont">Vermont</option>
+      <option value="Virginia">Virginia</option>
+      <option value="Washington">Washington</option>
+      <option value="West Virginia">West Virginia</option>
+      <option value="Wisconsin">Wisconsin</option>
+      <option value="Wyoming">Wyoming</option>
+   </select>
+</p>
+
+<!-- __________________________________________________________________________________-->
+<p class="error-message" id="pickupTimeError"></p> 
+
+<p>
+	<label for="pickupTime"> Pickup Time: </label>
+   <input type="datetime-local" id="pickupTime" required>
+
+</p>
+ 
+<!-- __________________________________________________________________________________-->
+<p class="error-message" id="stateSelectDropoffError"></p> 
+
+	<p>
+   <label for="stateSelectDropoff">Dropoff Location:</label>
+   <select id="stateSelectDropoff" required>
+      <option value="" disabled selected>Select a state</option>
+ <option value="Alabama">Alabama</option>
+     <option value="Alaska">Alaska</option>
+      <option value="Arizona">Arizona</option>
+      <option value="Arkansas">Arkansas</option>
+      <option value="California">California</option>
+      <option value="Colorado">Colorado</option>
+      <option value="Connecticut">Connecticut</option>
+      <option value="Delaware">Delaware</option>
+      <option value="Florida">Florida</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Hawaii">Hawaii</option>
+      <option value="Idaho">Idaho</option>
+      <option value="Illinois">Illinois</option>
+      <option value="Indiana">Indiana</option>
+      <option value="Iowa">Iowa</option>
+      <option value="Kansas">Kansas</option>
+      <option value="Kentucky">Kentucky</option>
+      <option value="Louisiana">Louisiana</option>
+      <option value="Maine">Maine</option>
+      <option value="Maryland">Maryland</option>
+      <option value="Massachusetts">Massachusetts</option>
+      <option value="Michigan">Michigan</option>
+      <option value="Minnesota">Minnesota</option>
+      <option value="Mississippi">Mississippi</option>
+      <option value="Missouri">Missouri</option>
+      <option value="Montana">Montana</option>
+      <option value="Nebraska">Nebraska</option>
+      <option value="Nevada">Nevada</option>
+      <option value="New Hampshire">New Hampshire</option>
+      <option value="New Jersey">New Jersey</option>
+      <option value="New Mexico">New Mexico</option>
+      <option value="New York">New York</option>
+      <option value="North Carolina">North Carolina</option>
+      <option value="North Dakota">North Dakota</option>
+      <option value="Ohio">Ohio</option>
+      <option value="Oklahoma">Oklahoma</option>
+      <option value="Oregon">Oregon</option>
+      <option value="Pennsylvania">Pennsylvania</option>
+      <option value="Rhode Island">Rhode Island</option>
+      <option value="South Carolina">South Carolina</option>
+      <option value="South Dakota">South Dakota</option>
+      <option value="Tennessee">Tennessee</option>
+      <option value="Texas">Texas</option>
+      <option value="Utah">Utah</option>
+      <option value="Vermont">Vermont</option>
+      <option value="Virginia">Virginia</option>
+      <option value="Washington">Washington</option>
+      <option value="West Virginia">West Virginia</option>
+      <option value="Wisconsin">Wisconsin</option>
+      <option value="Wyoming">Wyoming</option>
+   </select>
+</p>
+
+<!-- __________________________________________________________________________________-->
+<p class="error-message" id="dropoffTimeError"></p> 
+
+<p>
+	<label for="dropoffTime"> Dropoff Time: </label>
+   <input type="datetime-local" id="dropoffTime" required>
+
+</p>
+<!-- __________________________________________________________________________________-->
+<p>
+<p class="error-message" id="carTypeError"></p> 
+
+	<p>Car Type</p> 
+
+   <label><input type="radio" name="carType" value="Compact"> Compact Car</label>
+   <br>
+<label><input type="radio" name="carType" value="Economy"> Economy Car</label>
+<br>
+ <label><input type="radio" name="carType" value="Standard"> Standard Car</label><br>
+   <label><input type="radio" name="carType" value="Full-Size"> Full-Size Car</label>
+
+
+
+</p>
+<!-- __________________________________________________________________________________-->
+<p class="error-message" id="firstNameError"></p> 
+<p>
+	<label for="firstName">First Name </label>
+	<input type="text" id="firstName" required>	
+</p>
+<!-- __________________________________________________________________________________-->
+<p class="error-message" id="lastNameError"></p> 
+<p>
+	<label for="lastName">Last Name </label>
+	<input type="text" id="lastName" required>
+</p>
+<!-- __________________________________________________________________________________-->
+<p class="error-message" id="emailAddressError"></p> 
+<p>
+	<label for="emailAddress">Email </label>
+	<input type="Email" id="emailAddress" required>
+</p>
+<!-- __________________________________________________________________________________-->
+<p class="error-message" id="cardNameError"></p> 
+
+<p>
+	<label for="cardName">Name on Card </label>
+	<input type="text" id="cardName" required>
+</p>
+<!-- __________________________________________________________________________________-->
+<p class="error-message" id="cardNumberError"></p> 
+
+<p>
+	<label for="cardNumber">Card Number </label>
+	<input type="text" id="cardNumber" required>
+</p>
+<!-- __________________________________________________________________________________-->
+<p class="error-message" id="cvcError"></p> 
+
+<p>
+	<label for="cvc">CVV2/CVC </label>
+	<input type="number" id="cvc" required>
+</p>
+
+<p>
+    <a href="https://en.wikipedia.org/wiki/Card_security_code" target="_blank">What is CVV2/CVC?</a>
+
+</p>
+<!-- __________________________________________________________________________________-->
+
+
+<p class="error-message" id="expiraryError"></p> 
+
+<p>
+	<label for="expirary">Expirary Date </label>
+	<input type="month" id="expirary" min="2022-03" max="2025-12" value="2022-03">
+</p>
+
+<p>
+    <input type="image" name="submit" src="images/submit.jpeg" border="0" alt="Submit" id="confirm" style="width: 90px;" />
+    <input type="image" src="images/cancel.jpeg" alt="Cancel" id="cancel" style="width: 90px; height: 75px;" form="your-form-id" />
+</p>
+
+<p >
+<a href="../index.html">ePortfolio</a>
+</p>
+
+        
+
+
+</form>
+
+</body>
+</html>
